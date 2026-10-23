@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b1d">
+  <meta name="description" content="Khám phá Mầm Lúa Phiêu Lưu — triển lãm tương tác về nghệ thuật nhân vật, hoạt ảnh, môi trường và quy trình sáng tạo game Endless Runner lấy cảm hứng từ đồng quê Việt Nam.">
+  <title>Mầm Lúa Phiêu Lưu — Interactive Game Art Experience</title>
+  <link rel="icon" href="assets/mammmi-front.webp" type="image/webp">
+  <link rel="preload" href="assets/world-background.webp" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="updates.css">
+  <!-- Các tệp JS dưới đây là script cổ điển, mở được trực tiếp bằng file://, không cần localhost. -->
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"}}</script>
+  <script src="Assets/MamMi-data.js" defer></script>
+  <script src="viewer3d-local.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-progress" aria-hidden="true"><div id="progressBar"></div></div>
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#home" aria-label="Về đầu trang">
+      <span class="brand-mark" aria-hidden="true">✳</span><span>MẦM LÚA<span class="brand-mark-2"> / </span>PHIÊU LƯU</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
+      <a href="#story">Câu chuyện</a><a href="#world">Thế giới</a><a href="#character">Nhân vật</a><a href="#motion">Chuyển động</a><a href="#gallery">Thư viện</a>
+    </nav>
+    <a class="header-cta" href="#world"><span>KHÁM PHÁ</span><span aria-hidden="true">↗</span></a>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Mở menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-cloud c1" aria-hidden="true"></div>
+      <div class="hero-cloud c2" aria-hidden="true"></div>
+      <div class="hero-inner section-wrap">
+        <div class="hero-copy reveal">
+          <div class="eyebrow eyebrow-hero"><span class="dot"></span> AN INTERACTIVE GAME ART JOURNEY <span class="line"></span> 2026</div>
+          <p class="hero-lead">BƯỚC VÀO THẾ GIỚI</p>
+          <h1 id="heroTitle" class="hero-logo-title"><img src="assets/game-logo.webp" alt="Mầm Lúa Phiêu Lưu" fetchpriority="high"><span class="sr-only">Mầm Lúa Phiêu Lưu</span></h1>
+          <p class="hero-desc">Từ cánh đồng Việt Nam đến thế giới trò chơi. Khám phá hành trình sáng tạo nhân vật Mầm Mí, chuyển động, cảnh quan và nghệ thuật game 2D &amp; 3D.</p>
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#world">BẮT ĐẦU KHÁM PHÁ <span>↗</span></a>
+            <a class="btn btn-outline-dark" href="#story">VỀ DỰ ÁN <span>↘</span></a>
+          </div>
+          <div class="hero-meta"><span><b>01 /</b> Việt Nam</span><span><b>02 /</b> Game Art</span><span><b>03 /</b> Endless Runner</span></div>
+        </div>
+        <div class="hero-art reveal" aria-label="Nhân vật Mầm Mí">
+          <div class="sun-disk"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <span class="hero-art-small">MEET OUR LITTLE EXPLORER</span>
+          <img class="hero-character" id="heroCharacter" src="assets/mammmi-front.webp" alt="Mầm Mí, nhân vật chính của Mầm Lúa Phiêu Lưu" fetchpriority="high">
+          <div class="float-stamp"><span>THE<br>WORLD<br>OF</span><strong>MẦM<br>MÍ</strong><span class="stamp-arrow">↗</span></div>
+          <div class="floating-caption">ART DIRECTION <span>✳</span> CHARACTER DESIGN</div>
+        </div>
+      </div>
+      <div class="hero-bottom section-wrap"><span class="scroll-hint"><span class="scroll-mouse"><i></i></span> CUỘN ĐỂ KHÁM PHÁ</span><span>MADE OF LITTLE WONDERS <span>✳</span> MADE IN VIETNAM</span><span class="hero-count">01 — 07</span></div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div>GROWING THROUGH EVERY ADVENTURE <span>✳</span> NATURE MEETS PLAY <span>✳</span> MADE WITH IMAGINATION <span>✳</span> GROWING THROUGH EVERY ADVENTURE <span>✳</span> NATURE MEETS PLAY <span>✳</span></div></div>
+
+    <section class="story-section section-padding" id="story" aria-labelledby="storyTitle">
+      <div class="section-wrap">
+        <div class="section-index"><span>01 / THE IDEA</span><span>KHỞI NGUỒN</span></div>
+        <div class="story-grid">
+          <div class="story-title-block reveal"><div class="mini-overline">A TINY SEED. A BIG STORY.</div><h2 class="display-title" id="storyTitle">Một thế giới<br><em>bắt đầu từ</em><br><span>mầm lúa.</span></h2><span class="asterisk-big">✳</span></div>
+          <div class="story-content reveal"><div class="quote-mark">“</div><p class="story-quote">Những điều bình dị nhất cũng có thể mở ra một cuộc phiêu lưu kỳ diệu.</p><p>“Mầm Lúa Phiêu Lưu” là dự án thiết kế hệ thống mỹ thuật cho game <strong>Endless Runner</strong> trên thiết bị di động, lấy cảm hứng từ đồng quê Việt Nam, sắc vàng của lúa chín và năng lượng của thiên nhiên.</p><p>Dự án kết nối <strong>thiết kế nhân vật 2D, mô hình 3D, hoạt ảnh, môi trường và hệ thống giao diện</strong> trong một ngôn ngữ hình ảnh tươi sáng, nhất quán.</p><a class="text-link" href="#character">GẶP NHÂN VẬT CỦA CHÚNG TÔI <span>↗</span></a></div>
+        </div>
+        <div class="stats-row reveal"><div><strong>2D<span>+</span>3D</strong><span>NGÔN NGỮ ĐỒ HỌA</span></div><div><strong>04</strong><span>GÓC NHÌN NHÂN VẬT</span></div><div><strong>03</strong><span>PHỐI CẢNH MÔI TRƯỜNG</span></div><div><strong>01</strong><span>THẾ GIỚI RIÊNG BIỆT</span></div></div>
+      </div>
+    </section>
+
+    <section class="world-section section-padding" id="world" aria-labelledby="worldTitle">
+      <div class="section-wrap">
+        <div class="section-index section-index-light"><span>02 / ENVIRONMENT EXPLORER</span><span>KHÁM PHÁ THẾ GIỚI</span></div>
+        <div class="world-header reveal"><div><span class="mini-overline pale">STEP INTO THE LANDSCAPE</span><h2 class="display-title light" id="worldTitle">Chạm vào<br><em>thế giới</em> <span class="lime">Mầm Lúa.</span></h2></div><p>Mỗi khung cảnh là một lát cắt của đồng quê — con đường đất, ruộng lúa, dòng nước và những hàng cây. Chọn một góc nhìn để khám phá.</p></div>
+        <div class="world-interface reveal">
+          <div class="world-sidebar"><span class="small-label">EXPLORE / 03 VIEWS</span><div class="scene-list" role="group" aria-label="Chọn góc nhìn môi trường">
+            <button type="button" class="scene-btn active" data-scene="0" aria-pressed="true"><span>01</span><span>Con đường phía trước <small>Góc nhìn trung tâm</small></span><b>↗</b></button>
+            <button type="button" class="scene-btn" data-scene="1" aria-pressed="false"><span>02</span><span>Vùng ruộng nước <small>Góc chéo thứ nhất</small></span><b>↗</b></button>
+            <button type="button" class="scene-btn" data-scene="2" aria-pressed="false"><span>03</span><span>Lối đi giữa đồng <small>Góc chéo thứ hai</small></span><b>↗</b></button>
+          </div><div class="world-info"><span class="world-info-icon">✳</span><p>KHÔNG GIAN CỦA NHỮNG CUỘC PHIÊU LƯU</p><strong>Thiên nhiên được chuyển hóa thành ngôn ngữ mỹ thuật game.</strong></div></div>
+          <div class="scene-viewer" tabindex="0" aria-label="Trình xem ảnh môi trường, dùng phím trái phải để đổi cảnh">
+            <div class="scene-stage" id="sceneStage"><img id="sceneImage" src="assets/scene-center.webp" alt="Góc nhìn trung tâm của đường chạy giữa cánh đồng" loading="lazy"></div>
+            <div class="scene-viewer-top"><span class="live-pill"><span></span> ENVIRONMENT PREVIEW</span><span>VISUAL STUDY / 2026</span></div>
+            <div class="scene-viewer-bottom"><div><span id="sceneCounter">01 / 03</span><h3 id="sceneTitle">Con đường phía trước</h3><p id="sceneDesc">Góc nhìn chính diện, đặt tuyến đường chạy làm trục thị giác giữa ruộng đồng.</p></div><div class="scene-arrows"><button type="button" id="prevScene" aria-label="Góc nhìn trước">←</button><button type="button" id="nextScene" aria-label="Góc nhìn sau">→</button></div></div>
+          </div>
+        </div>
+        <p class="world-disclaimer">* Hình ảnh môi trường là tư liệu thiết kế của dự án, không phải màn chơi tương tác hoàn chỉnh.</p>
+      </div>
+    </section>
+
+    <section class="character-section section-padding" id="character" aria-labelledby="characterTitle">
+      <div class="section-wrap">
+        <div class="section-index"><span>03 / CHARACTER LAB</span><span>NHÂN VẬT CHÍNH</span></div>
+        <div class="character-layout">
+          <div class="character-side reveal"><span class="mini-overline">A LITTLE HERO WITH A BIG HEART</span><h2 class="display-title" id="characterTitle">Xin chào,<br><em>Mầm Mí!</em></h2><p>Với mái tóc nâu bồng bềnh, băng đô xanh, bông lúa vàng và trang phục mang cảm hứng từ đồng quê, Mầm Mí là người bạn đồng hành trong mỗi chặng đường.</p><div class="character-tags"><span># CURIOUS</span><span># CHEERFUL</span><span># NATURE-LOVER</span></div><div class="character-view-toggle" role="group" aria-label="Chọn loại tạo hình"><button type="button" data-model="2d" class="active" aria-pressed="true">2D CHARACTER</button><button type="button" data-model="3d" aria-pressed="false">3D CHARACTER</button></div><div class="rotation-guide">CHỌN GÓC NHÌN <span>—</span> <strong id="viewName">CHÍNH DIỆN</strong></div><div class="view-buttons" role="group" aria-label="Đổi góc nhìn nhân vật"><button type="button" class="active" data-view="0" aria-pressed="true">01 <small>FRONT</small></button><button type="button" data-view="1" aria-pressed="false">02 <small>BACK</small></button><button type="button" data-view="2" aria-pressed="false">03 <small>LEFT</small></button><button type="button" data-view="3" aria-pressed="false">04 <small>RIGHT</small></button></div></div>
+          <div class="character-stage reveal" id="characterStage" tabindex="0" aria-label="Trình xem nhân vật Mầm Mí, hỗ trợ đổi góc và xoay mô hình 3D khi có tệp MamMi">
+            <div class="stage-grid" aria-hidden="true"></div><div class="stage-halo"></div>
+            <div class="char-stage-heading">CHARACTER <span>VIEWER / 001</span></div>
+            <img id="characterView" class="character-render" src="assets/mammmi-front.webp" alt="Mầm Mí ở góc chính diện">
+            <div id="model3dHost" class="model-3d-host" hidden aria-label="Mô hình 3D Mầm Mí có thể xoay và phóng to"></div>
+            <div class="stage-floor"></div>
+            <div id="model3dNotice" class="model-3d-notice" role="status" aria-live="polite" hidden></div>
+            <div class="stage-annotations"><span id="characterSourceText">ORIGINAL CHARACTER DESIGN</span><span id="characterGesture">VUỐT / ← → ĐỂ ĐỔI GÓC</span></div>
+            <div class="stage-flip-hint">← <span id="characterHint">ĐỔI GÓC NHÌN</span> →</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="motion-section section-padding" id="motion" aria-labelledby="motionTitle">
+      <div class="section-wrap"><div class="section-index section-index-light"><span>04 / ANIMATION PLAYGROUND</span><span>CHUYỂN ĐỘNG NHÂN VẬT</span></div>
+        <div class="motion-head reveal"><div><span class="mini-overline pale">EVERY MOVE HAS A STORY</span><h2 class="display-title light" id="motionTitle">Một nhân vật.<br><em>Ngàn chuyển động.</em></h2></div><p>Từ chạy, chuyển làn đến bật nhảy, mỗi tư thế được phát triển để tạo nên nhịp điệu chuyển động cho thế giới Mầm Lúa.</p></div>
+        <div class="motion-workspace reveal">
+          <div class="motion-canvas" id="motionCanvas" tabindex="0" aria-label="Mầm Mí tự động chạy. Dùng nút hoặc phím mũi tên trái, lên, phải để điều khiển">
+            <div class="motion-track" id="motionTrack" aria-hidden="true"></div>
+            <div class="motion-player" id="motionPlayer" data-lane="1"><img src="assets/run-1.webp" id="motionImage" alt="Mầm Mí đang chạy ở làn giữa"></div>
+            <div class="motion-canvas-top"><span class="game-label">MẦM LÚA / RUN DEMO</span><span class="live-pill"><span></span> AUTO RUNNING</span></div>
+            <div class="motion-canvas-bottom"><span id="frameLabel">RUN / 01</span><span id="motionCanvasLane">LÀN GIỮA</span></div>
+          </div>
+          <div class="motion-controls">
+            <div class="small-label">04 / MINI GAMEPLAY EXPERIENCE</div>
+            <h3>Điều khiển<br>Mầm Mí</h3>
+            <p>Nhân vật <strong>tự chạy liên tục</strong> trên đường đồng quê. Chuyển trái, chuyển phải để đổi làn; nhảy để vượt chướng ngại. Sau mỗi động tác, Mầm Mí tiếp tục chạy <strong>ngay tại làn đang đứng</strong>.</p>
+            <div class="runner-control-pad" role="group" aria-label="Các nút điều khiển chuyển động">
+              <button type="button" class="runner-key" id="runLeft" data-run-action="left" aria-label="Chuyển sang làn bên trái"><span class="runner-key-arrow">←</span><span>SANG TRÁI</span></button>
+              <button type="button" class="runner-key runner-key-jump" id="runJump" data-run-action="jump" aria-label="Nhảy lên"><span class="runner-key-arrow">↑</span><span>NHẢY LÊN</span></button>
+              <button type="button" class="runner-key" id="runRight" data-run-action="right" aria-label="Chuyển sang làn bên phải"><span class="runner-key-arrow">→</span><span>SANG PHẢI</span></button>
+            </div>
+            <div class="runner-lane-panel" aria-live="polite">
+              <div><span>VỊ TRÍ HIỆN TẠI</span><strong id="laneName">LÀN GIỮA</strong></div>
+              <div class="lane-indicator" aria-hidden="true"><span></span><span class="active"></span><span></span></div>
+            </div>
+            <div class="runner-hint"><span class="runner-running-dot"></span><span id="runnerStatus">ĐANG CHẠY LIÊN TỤC</span></div>
+            <p class="runner-instructions">BÀN PHÍM: <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> · HOẶC VUỐT TRÊN ĐƯỜNG CHẠY</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section section-padding" id="gallery" aria-labelledby="galleryTitle"><div class="section-wrap"><div class="section-index"><span>05 / THE ART COLLECTION</span><span>BỘ SƯU TẬP</span></div><div class="gallery-header reveal"><div><span class="mini-overline">CURATED FROM OUR ARTBOOK</span><h2 class="display-title" id="galleryTitle">Behind the <em>pixels.</em></h2><p>Toàn bộ hành trình thiết kế từ concept đến tài nguyên hoàn thiện.</p></div><div class="gallery-filters" role="group" aria-label="Lọc thư viện"><button type="button" data-filter="all" class="active" aria-pressed="true">TẤT CẢ</button><button type="button" data-filter="character" aria-pressed="false">NHÂN VẬT</button><button type="button" data-filter="environment" aria-pressed="false">MÔI TRƯỜNG</button><button type="button" data-filter="3d" aria-pressed="false">3D / ASSETS</button><button type="button" data-filter="design" aria-pressed="false">DESIGN</button></div></div><div class="gallery-grid" id="galleryGrid" aria-live="polite"></div><div class="gallery-footnote"><span id="galleryCount">12 TÁC PHẨM</span><span>NHẤN VÀO HÌNH ĐỂ XEM CHI TIẾT ↗</span></div></div></section>
+
+    <section class="process-section section-padding" id="process" aria-labelledby="processTitle"><div class="section-wrap"><div class="section-index section-index-light"><span>06 / FROM IDEA TO IMAGE</span><span>QUY TRÌNH THIẾT KẾ</span></div><div class="process-head reveal"><div><span class="mini-overline pale">A MAKING-OF STORY</span><h2 class="display-title light" id="processTitle">Từ nét phác<br><em>đến thế giới.</em></h2></div><p>Không chỉ là những hình ảnh hoàn chỉnh, Mầm Lúa Phiêu Lưu là quá trình nghiên cứu, thử nghiệm và thống nhất một phong cách thiết kế xuyên suốt.</p></div><div class="process-grid reveal"><article><img src="assets/moodboard.webp" alt="Moodboard về đồng quê Việt Nam" loading="lazy"><span>01 / RESEARCH</span><h3>Tìm nguồn cảm hứng</h3><p>Moodboard, chất liệu đồng quê Việt Nam và định hướng hình ảnh.</p></article><article><img src="assets/character-sheet.webp" alt="Khảo sát hình ảnh nhân vật Mầm Mí" loading="lazy"><span>02 / DESIGN</span><h3>Phát triển nhân vật</h3><p>Phác thảo silhouette, tạo hình nhân vật và model sheet.</p></article><article><img src="assets/poly-studies.webp" alt="Các dạng hiển thị high poly và wireframe" loading="lazy"><span>03 / MODELING</span><h3>Hiện thực hóa 3D</h3><p>High poly, low poly, topology, UV và thử nghiệm hoạt ảnh.</p></article><article><img src="assets/ui-board.webp" alt="Bộ giao diện game trong tài liệu artbook" loading="lazy"><span>04 / SYSTEM</span><h3>Hoàn thiện hệ thống</h3><p>Đồng bộ màu sắc, tài nguyên trò chơi và giao diện UI.</p></article></div><div class="palette-strip reveal"><div><span>OUR PALETTE</span><strong>Những sắc màu của đồng quê.</strong></div><div class="palette-colors"><span style="--swatch:#76B900" title="Xanh lá chủ đạo"></span><span style="--swatch:#457B00" title="Xanh lá đậm"></span><span style="--swatch:#FBC525" title="Vàng bông lúa"></span><span style="--swatch:#CB8008" title="Nâu đất"></span><span style="--swatch:#0FA8F8" title="Xanh nước"></span><span style="--swatch:#FDF5E3" title="Kem gạo"></span></div></div></div></section>
+
+    <section class="end-section" id="team"><div class="end-bg"></div><div class="section-wrap end-content reveal"><span class="end-star">✳</span><span class="mini-overline">ONE WORLD. MANY LITTLE WONDERS.</span><h2>Hành trình này<br>chỉ mới <em>bắt đầu.</em></h2><p>“Mầm Lúa Phiêu Lưu” — nơi những hình ảnh thân thuộc của đồng quê trở thành một cuộc phiêu lưu đầy sắc màu.</p><a class="btn btn-green" href="#home">TRỞ VỀ ĐIỂM KHỞI ĐẦU <span>↗</span></a><div class="team-block"><span>PROJECT TEAM / 2026</span><div><span>HUỲNH ĐỨC NHẬT</span><span>NGUYỄN THỊ NHẤT PHƯƠNG</span><span>TÀO NGUYÊN PHONG</span></div></div></div></section>
+  </main>
+
+  <footer><div class="section-wrap footer-inner"><a href="#home" class="brand footer-brand"><span class="brand-mark">✳</span> MẦM LÚA / PHIÊU LƯU</a><span>TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG VIỆT – HÀN</span><span>GAME ART PROJECT © 2026</span><a href="#home">BACK TO TOP ↑</a></div></footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Xem tác phẩm"><div class="lightbox-inner"><button type="button" id="closeLightbox" class="lightbox-close" aria-label="Đóng ảnh">×</button><div class="lightbox-image"><img id="lightboxImage" alt=""></div><div class="lightbox-info"><div><span class="small-label" id="lightboxCategory"></span><h3 id="lightboxTitle"></h3><p id="lightboxDescription"></p></div><div class="lightbox-arrows"><button type="button" id="prevGallery" aria-label="Ảnh trước">←</button><button type="button" id="nextGallery" aria-label="Ảnh sau">→</button></div></div></div></dialog>
+</body>
+</html>

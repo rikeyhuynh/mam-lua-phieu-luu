@@ -1,0 +1,139 @@
+/* Mầm Lúa Phiêu Lưu · v2
+   All display typography uses Be Vietnam Pro and airy, safe line metrics.
+   The hero logo and original running-track art are supplied by the project team. */
+:root { --font-game:"Be Vietnam Pro", "Segoe UI", Arial, sans-serif; }
+html,body,button,input { font-family:var(--font-game); }
+body { font-family:var(--font-game); }
+h1,h2,h3 { font-family:var(--font-game); font-weight:800; letter-spacing:-.034em; line-height:1.22; overflow-wrap:normal; }
+.sr-only { position:absolute!important; width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0 }
+.display-title,
+.story-title-block .display-title,
+.world-header .display-title,
+.character-side .display-title,
+.motion-head .display-title,
+.process-head .display-title,
+.gallery-header .display-title { font-family:var(--font-game); font-weight:800; letter-spacing:-.042em; line-height:1.24; }
+.display-title em, .hero h1 em, .end-content h2 em {
+  font-family:var(--font-game); font-weight:800; font-style:italic;
+  letter-spacing:-.035em; line-height:inherit;
+}
+.display-title em { padding-right:.045em; }
+.display-title { font-size:clamp(47px,6vw,91px); }
+.story-title-block .display-title { font-size:clamp(50px,6.7vw,96px); }
+.world-header .display-title { font-size:clamp(50px,6.15vw,90px); }
+.world-header .display-title .lime { display:block; max-width:100%; letter-spacing:-.035em; }
+.character-side .display-title { font-size:clamp(50px,5.4vw,79px); }
+.character-side .display-title em { display:block; }
+.motion-head .display-title,.process-head .display-title{font-size:clamp(47px,5.4vw,82px)}
+.gallery-header .display-title { font-size:clamp(48px,5.6vw,87px); }
+.end-content h2 { font-family:var(--font-game); font-size:clamp(51px,7.3vw,113px);line-height:1.25;letter-spacing:-.048em;font-weight:850; }
+.hero h1.hero-logo-title { font:inherit; font-size:initial;line-height:normal;letter-spacing:normal;white-space:normal;margin:0 0 22px;text-shadow:none;max-width:690px; }
+.hero-logo-title img { width:100%;max-height:345px;object-fit:contain;object-position:left center;filter:drop-shadow(0 14px 13px rgba(20,64,26,.1)); }
+.hero-copy { min-width:0; }
+.hero-desc { max-width:560px; }
+.brand,.main-nav,.section-index { letter-spacing:0; }
+.brand { font-size:clamp(12px,1.12vw,15px); }
+.world-header,.story-grid,.character-layout { min-width:0; }
+.world-header > div,.story-grid > *, .character-layout > * { min-width:0; }
+/* Real model lives in a separate, opt-in WebGL layer; base images remain visible as fallback. */
+.model-3d-host { position:absolute;z-index:2;inset:48px 0 55px;overflow:hidden;touch-action:none; }
+.model-3d-host[hidden], .model-3d-notice[hidden] { display:none!important; }
+.model-3d-host canvas { display:block;width:100%;height:100%;cursor:grab; }
+.model-3d-host canvas:active { cursor:grabbing; }
+.character-stage.real-model-active .character-render { display:none; }
+.character-stage.real-model-active .stage-flip-hint { pointer-events:none; }
+.model-3d-notice { position:absolute;z-index:6;left:50%;bottom:95px;transform:translateX(-50%);width:min(89%,500px);padding:13px 16px;border-radius:9px;background:rgba(247,247,232,.91);box-shadow:0 5px 23px #15352320;color:#315333;font-size:11px;line-height:1.7;text-align:center;font-weight:650;pointer-events:none; }
+/* New runner: the provided genuine road texture is now the full playground surface. */
+.motion-workspace { grid-template-columns:minmax(0,1.2fr) minmax(320px,.85fr);min-height:710px; }
+.motion-canvas { position:relative;min-height:710px;isolation:isolate;background:#d58f20;touch-action:pan-y; }
+.motion-track { position:absolute;inset:0;z-index:-1;background-image:url('assets/run-track.webp');background-position:center 0;background-repeat:repeat-y;background-size:100% auto;will-change:background-position; }
+.motion-canvas::after { content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(19,42,19,.36),transparent 15%,transparent 77%,rgba(10,34,18,.4)); }
+.motion-player { z-index:3;position:absolute;bottom:19%;height:38%;width:clamp(110px,15vw,188px);left:50%;transform:translateX(-50%);transition:left .54s cubic-bezier(.23,1,.32,1);display:flex;align-items:flex-end;justify-content:center;pointer-events:none; }
+.motion-player[data-lane="0"] { left:30%; }
+.motion-player[data-lane="1"] { left:50%; }
+.motion-player[data-lane="2"] { left:70%; }
+.motion-player img { display:block;height:100%;width:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(0px 12px 5px rgba(60,35,15,.42)); }
+.motion-player.is-jumping img { animation:mammi-jump .82s cubic-bezier(.29,.02,.24,1) 1; }
+@keyframes mammi-jump {
+  0%,100%{transform:translateY(0) scale(1)}
+  23%{transform:translateY(-50px) scale(1.04)}
+  50%{transform:translateY(-108px) scale(1.08)}
+  75%{transform:translateY(-51px) scale(1.04)}
+}
+.motion-canvas-top,.motion-canvas-bottom { color:#fff;z-index:5;letter-spacing:.065em;text-shadow:0 2px 6px rgba(23,36,12,.5); }
+.motion-canvas-top { top:20px; }
+.motion-canvas-top .game-label { border-radius:99px;background:rgba(17,48,24,.88);padding:11px 15px; }
+.motion-canvas-top .live-pill { background:rgba(16,57,25,.86);color:#edffcd;white-space:nowrap; }
+.motion-canvas-bottom { bottom:22px; }
+.motion-canvas-bottom > span { background:rgba(19,53,25,.79);padding:9px 12px;border-radius:99px; }
+.motion-controls { padding:clamp(28px,3.6vw,52px); }
+.motion-controls h3 { font-size:clamp(32px,3.4vw,49px);line-height:1.25;letter-spacing:-.036em;margin:24px 0 20px; }
+.motion-controls p { max-width:460px;line-height:1.82; }
+.motion-controls p strong { color:#eef5d4;font-weight:750; }
+.runner-control-pad { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px; }
+.runner-key { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:112px;min-width:0;padding:14px 5px 13px;background:#244b30;border:1px solid rgba(197,232,155,.35);border-radius:13px;color:#e9f3d7;font-weight:850;font-size:10px;letter-spacing:.02em;transition:transform .2s,background .2s,border-color .2s; }
+.runner-key:hover:not(:disabled),.runner-key:focus-visible { background:#387643;color:#fff;border-color:#c7ee71;transform:translateY(-2px); }
+.runner-key:active:not(:disabled) { transform:translateY(1px) scale(.96); }
+.runner-key:disabled { opacity:.38;cursor:not-allowed; }
+.runner-key-arrow { font-family:var(--font-game);font-weight:600;font-size:41px;line-height:1.05; }
+.runner-key-jump { background:#bcdf64;color:#183a25;border-color:#bcdf64; }
+.runner-key-jump:hover:not(:disabled) { background:#d3ef84;color:#173923; }
+.runner-lane-panel { border-top:1px solid #6b896d;border-bottom:1px solid #6b896d;margin-top:30px;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:12px; }
+.runner-lane-panel > div:first-child { display:flex;flex-direction:column;gap:8px; }
+.runner-lane-panel > div:first-child span { font-size:10px;letter-spacing:.12em;color:#a5c7a1;font-weight:850; }
+.runner-lane-panel strong { font-size:22px;font-weight:850;letter-spacing:-.02em;color:#c7ed7c; }
+.lane-indicator { display:flex;gap:7px; }
+.lane-indicator span { width:18px;height:32px;transform:skewX(-7deg);border:1px solid #729675;background:#426649;transition:background .25s; }
+.lane-indicator span.active { background:#c6ed75;border-color:#d9fba1;box-shadow:0 0 14px rgba(191,235,105,.25); }
+.runner-hint { display:flex;align-items:center;gap:11px;margin-top:30px;font-size:10px;letter-spacing:.08em;font-weight:800;color:#e6f5d4; }
+.runner-running-dot { width:10px;height:10px;border-radius:50%;background:#adf465;box-shadow:0 0 0 5px rgba(163,233,103,.14); }
+.motion-controls p.runner-instructions { font-size:10px;letter-spacing:.02em;color:#a8c6a6;margin-top:20px;margin-bottom:0; }
+.runner-instructions kbd { margin-inline:3px; }
+@media(max-width:1200px){
+  .world-header .display-title{font-size:clamp(48px,6.7vw,85px)}
+  .character-side .display-title{font-size:clamp(43px,5.8vw,72px)}
+  .motion-workspace{grid-template-columns:minmax(0,1.12fr) minmax(315px,.88fr)}
+  .motion-player{width:clamp(100px,15vw,160px)}
+}
+@media(max-width:920px){
+  .hero-logo-title img{max-height:275px}
+  .motion-workspace{grid-template-columns:1fr}
+  .motion-canvas{min-height:650px}
+  .motion-controls{padding:36px}
+  .motion-controls h3 br{display:initial}
+  .runner-control-pad{max-width:510px}
+  .runner-lane-panel{max-width:510px}
+}
+@media(max-width:700px){
+  .hero h1.hero-logo-title { margin-bottom:12px;max-width:95%; }
+  .hero-logo-title img { max-height:220px; }
+  .hero-inner{padding-top:118px}
+  .hero-lead{margin:20px 0 7px}
+  .display-title,.story-title-block .display-title{font-size:clamp(42px,8.6vw,68px);line-height:1.25}
+  .world-header .display-title,.character-side .display-title,.motion-head .display-title,.process-head .display-title,.gallery-header .display-title{font-size:clamp(43px,8.5vw,65px);line-height:1.25}
+  .end-content h2{font-size:clamp(44px,10vw,68px);line-height:1.26}
+  .character-stage{height:565px}
+  .model-3d-host{inset:55px 0 50px}
+  .model-3d-notice{font-size:10px;bottom:84px}
+  .motion-canvas{min-height:570px}
+  .motion-player{width:clamp(112px,25vw,152px);height:37%;bottom:18%}
+  .motion-canvas-top,.motion-canvas-bottom{left:14px;right:14px;font-size:8px}
+  .motion-canvas-top{top:15px}
+  .motion-canvas-bottom{bottom:13px}
+  .motion-controls{padding:32px 24px}
+  .motion-controls h3{font-size:34px}
+  .runner-control-pad{gap:8px}
+  .runner-key{min-height:102px;font-size:9px;gap:8px}
+  .runner-key-arrow{font-size:37px}
+  .runner-lane-panel strong{font-size:19px}
+}
+@media(max-width:390px){
+  .hero-logo-title img{max-height:180px}
+  .motion-canvas{min-height:480px}
+  .motion-player{width:100px}
+  .motion-canvas-top .game-label,.motion-canvas-top .live-pill {padding:8px 9px;font-size:7px}
+  .runner-key{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .motion-player.is-jumping img{animation:none}
+}
